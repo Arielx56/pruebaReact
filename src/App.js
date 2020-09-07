@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Aleatorio from './Components/Aleatorio';
+// import Opcion from './Components/Opcion';
+class App extends Component {
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  state={
+    datoinput: '',
+    datoale: ''
+  }
+ 
+  datosAleatorio = (valor) => {
+    this.setState({
+      datoinput: valor,
+    })
+  }
+  datosAle= (valor) => {
+    this.setState({
+      datoale: valor,
+    })
+  }
+  render() {
+    return (
+      <div className="app container">
+        <div className="jumbotron">
+          <h1 className="text-center" >Juego</h1>
+          {this.state.datoale}
+          <h5 className="lead text-center" >Adivina el numero aleatorio</h5>
+          
+          {/* <Opcion/> */}
+          <Aleatorio
+            datos={this.datosAleatorio}
+            datos2= {this.datosAle}
+          />
+          
+          <h1>{this.state.datoinput}</h1>
+         
+      </div>
+      </div>
+    );
+ }
 }
 
 export default App;
