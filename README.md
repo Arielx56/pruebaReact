@@ -1,3 +1,8 @@
+Programar un juego en donde se calcule un número aleatorio del 0 al 100 inclusive y que el usuario lo adivine. El usuario deberá ingresar números, y la app lo guiará si gana, o si el número es mayor, o menor. Al finalizar el juego el usuario podría volver a jugar. Se evaluará la interfaz de usuario, la experiencia y también el código o solución técnica Se pueden usar librerías o herramientas que se deseen. En caso de no conocer Angular se puede plantear en otro framework de Javascript.  
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
