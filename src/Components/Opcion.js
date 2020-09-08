@@ -1,70 +1,71 @@
-import React, { Component,useState } from 'react';
-import App from '../App';
+import React, {useState} from 'react';
+import PropTypes from 'prop-types';
+// import React, { Component } from 'react';
 
-function Aleatorio () {
+ 
 
-    const numAleatorio;
-    const valorIngresado;
+const AleatorioApp = ({ valor, valor2}) => {
+
+    // HOOKS
+    // comunmente dentro de las libreias los que son use son hooks
+    // el useState retorna un arreglo con dos valores 
+    const [aleatorio, setAleatorio] = useState(valor);
+    const [valoringresado, setValorIngresado] = useState(valor2);
+    
 
     const generadordenumaleatorio = () => {
-            
-        numAleatorio = parseInt(Math.random() * 100)
-        console.log(numAleatorio)
 
-        this.props.datos2(numAleatorio)
+        setAleatorio(
+
+            parseInt(Math.random(aleatorio) * 100) 
+        )
     }
 
-    valorIngresadoref = React.createRef();
+    const  obtenerDato = () => {
+        // e.preventDefault();
 
-    const obtenerDato = (e) => {
-        e.preventDefault();
-
-        // const valorAleatorio = this.numAleatorio.current.value
-
-        valorIngresado = this.valorIngresadoref.current.value
-
-        this.props.datos(valorIngresado);
-        // this.props.datos2(valorAleatorio);
+        setValorIngresado(valoringresado + 1)
+        
+            // if (valoringresado == aleatorio) {
+            //     console.log('Felicidades has adivinado');
+                
+            // } else {
+            //     if (valoringresado > aleatorio) {
+            //         console.log('El numero es mayor sigue intentato') 
+            //     } else {
+            //         console.log('El numero es menor sigue intentato')
+            //     }
+            // } 
     }
 
-   const gameOver = () => {
 
-        if (valorIngresado === numAleatorio) {
-            console.log('Felicidades has adivinado')
-            // App.close();
-        } else {
-            if (valorIngresado > numAleatorio) {
-                console.log('El numero es mayor sigue intentato') 
-            } else {
-                console.log('El numero es menor sigue intentato')
-            }
-        }
-    }
-    // render() { 
-    //     return (  
-    //         <>
-    //            <div className="text-center">
-    //       <input ref={this.valorIngresadoref} className="text-center" type="text" placeholder="Ingresa un numero" />
-    //     </div>
-    //         <h1>{this.numAleatorio}</h1>
-    //         <div className="text-center">
-    //         <div className="">
-    //             <button className="btn btn-lg btn-danger " onClick={generadordenumaleatorio}>Iniciar</button>
-    //         </div>
-    //         <h2></h2>
-    //         <div className="text-center" >
-    //             <button onClick={obtenerDato, gameOver} className="btn btn-lg btn-danger" >Adivinar</button>
-    //         </div>
-    //         </div>
-    //         </>
-    //     );
-    // }
+    return (
+        <>
+            <h2>{aleatorio}</h2>
+            <div className="text-center">
+          <input className="text-center" type="text" placeholder="Ingresa un numero" />
+        </div>
+        <h2></h2>
+            <div className="text-center">
+            <div className="">
+                <button className="btn btn-lg btn-danger " onClick={generadordenumaleatorio}>Iniciar</button>
+            </div>
+            <h2></h2>
+            <div className="text-center" >
+                <button onClick={obtenerDato} className="btn btn-lg btn-danger" >Adivinar</button>
+                </div>
+            <h2>{valoringresado}</h2>
+            </div>
+        
+        </>
+        
+    );
+
 }
 
 
-// const mostrarGuia = ({ valor }) => {
-    
-//     // const [guia, setGuia] = useState(valor);
-// }
+AleatorioApp.prototype = {
+    value: PropTypes.number
+}
 
-export default Aleatorio;
+export default AleatorioApp;

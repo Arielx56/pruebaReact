@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import Aleatorio from './Components/Aleatorio';
-// import Opcion from './Components/Opcion';
+import Opcion from './Components/Opcion';
 class App extends Component {
+
+//   constructor(props) {
+//     super(props){
+//         this.state = getEstadoInicial();
+//     }
+// }
 
   state={
     datoinput: '',

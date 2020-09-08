@@ -1,5 +1,5 @@
-import React, { Component,useState } from 'react';
-import App from '../App';
+import React, { Component } from 'react';
+// import App from '../App';
 
 let numAleatorio;
 let valorIngresado;
@@ -7,6 +7,7 @@ let estado = false;
 
 class Aleatorio extends Component {
 
+    
 
     generadordenumaleatorio = () => {
             
@@ -30,9 +31,9 @@ class Aleatorio extends Component {
         
         do {
             if (valorIngresado == numAleatorio) {
-                console.log('Felicidades has adivinado');
-                estado = true;
-                break;
+                console.log('Felicidades has adivinado')
+                this.obtenerDato()
+
             } else {
                 if (valorIngresado > numAleatorio) {
                     console.log('El numero es mayor sigue intentato') 
