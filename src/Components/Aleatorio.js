@@ -3,49 +3,43 @@ import React, { Component } from 'react';
 
 let numAleatorio;
 let valorIngresado;
+let mensaje;
 let estado = false;
 
 class Aleatorio extends Component {
-
-    
 
     generadordenumaleatorio = () => {
             
         numAleatorio = parseInt(Math.random() * 100)
         console.log(numAleatorio)
-
-        this.props.datos2(numAleatorio)
+        this.props.valorAleatorio(numAleatorio)
     }
 
+    
     valorIngresadoref = React.createRef();
 
     obtenerDato = (e) => {
         e.preventDefault();
 
-        // const valorAleatorio = this.numAleatorio.current.value
-
         valorIngresado = this.valorIngresadoref.current.value
-
-        this.props.datos(valorIngresado);
-        // this.props.datos2(valorAleatorio);
-        
-        do {
+        this.props.valorIngresado(valorIngresado)
+        this.props.comparandoValores()
             if (valorIngresado == numAleatorio) {
-                console.log('Felicidades has adivinado')
-                this.obtenerDato()
-
+                estado = true
+                this.props.valorEncontrado(estado)
+                this.props.gameOver()
             } else {
                 if (valorIngresado > numAleatorio) {
-                    console.log('El numero es mayor sigue intentato') 
+                    mensaje ='El numero es mayor sigue intentato'
+                    this.props.mensajeDeAyuda(mensaje); 
                 } else {
-                    console.log('El numero es menor sigue intentato')
+                    mensaje ='El numero es menor sigue intentato'
+                    this.props.mensajeDeAyuda(mensaje); 
                 }
-            }
-            
-        } while (valorIngresado == numAleatorio);
-        
-       
+            }    
     }
+
+    
     render() { 
         return (  
             <>
@@ -66,11 +60,5 @@ class Aleatorio extends Component {
         );
     }
 }
-
-
-// const mostrarGuia = ({ valor }) => {
-    
-//     // const [guia, setGuia] = useState(valor);
-// }
 
 export default Aleatorio;
